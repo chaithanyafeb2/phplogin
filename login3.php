@@ -5,13 +5,13 @@ if(isset($_POST['sub']) && ($_POST["vercode"] == $_SESSION["vercode"]) )
     $u=$_POST['user'];
     $p=$_POST['pass'];
     $p=md5($p);
-    $s= "select * from reg where username='$u' and password= '$p'";   
+    $s= "select * from doctor where username='$u' and password= '$p'";   
    $qu= mysqli_query($con, $s);
    if(mysqli_num_rows($qu)>0)
    {
       $f= mysqli_fetch_assoc($qu);
       $_SESSION['id']=$f['id'];
-      header ('location:home.php');
+      header ('location:dochome.php');
    }
    else{
        echo 'username or password does not exist';
@@ -64,13 +64,13 @@ form {
                 
                 <tr>
                     <td>
-                        Admin Username :
+                        Doctor Username :
                         <input type="text" name="user">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Admin password :
+                        Doctor password :
                         <input type="password" name="pass">
                     </td>
                 </tr>

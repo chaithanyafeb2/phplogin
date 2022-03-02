@@ -1,8 +1,13 @@
 <?php
 include'connect.php';
-     $s="select * from reg where id='$_SESSION[id]'";
-    $qu= mysqli_query($con, $s);
-    $f=mysqli_fetch_assoc($qu);
+if(isset($_POST['sub']))
+{
+    $u=$_POST['bran'];
+    $v=$_POST['amt'];
+    $i="insert into branch(city,amt)value('$u','$v')";
+    mysqli_query($con, $i);
+    echo "Branch added successfully";
+}
     ?>
 <html>
     <head>
@@ -41,44 +46,10 @@ form {
             <a href="https://www.linkedin.com/in/gangisetty-sai-krishna-chaithanya-ab76bb16a/" target="blank">Developer</a>
             <a href="logout.php">Logout</a>
         </div><br><br><br>
-<table border='1'>
-    <tr>
-        <td>
-            Name
-        </td><td>
-            
-<?php echo $f['name'];?>
-            </td>
-    </tr>
-    <tr>
-    <td> Username</td>
-    
-    <td>
-            
-<?php
-echo $f['username'];?>
-        </td></tr>
+        <form method="POST" enctype="multipart/form-data">
+City Name : <input type="text" name="bran">
+Amount per patient : <input type="number" name="amt">
+<input type="submit" value="submit" name="sub">
 
-  <tr><td> City </td>   <td>           
- <?php
- echo $f['city']."<br>";?></td></tr>
-  <tr>
-      <td>Gender</td>
-      <td><?php
-echo $f['gender']."<br>";?></td>
-  </tr>
-  <tr><td> Image</td><td>
-
- <img src="<?php
-echo $f['image'];?>" width="100px" height="100px">
-</td>
-
-</tr>
-</table>
-<a href="edit.php" text-color:"black">Edit</a>
-<a href="delete.php">Delete</a>
-<a href="branch.php">Create Branch</a>
-<a href="reg.php">Add Staff</a>
-<a href="adddoc.php">Add Doctor</a>
     </body>
 </html>

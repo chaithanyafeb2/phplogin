@@ -1,6 +1,6 @@
 <?php
 include'connect.php';
-     $s="select * from reg where id='$_SESSION[id]'";
+     $s="select * from doctor where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
     ?>
@@ -36,8 +36,8 @@ form {
     </head>
     <body>
     <div class="me">
-    <a href="home.php">Home</a>
-            <a href="viewall.php">All Users</a>
+    <a href="dochome.php">Home</a>
+            
             <a href="https://www.linkedin.com/in/gangisetty-sai-krishna-chaithanya-ab76bb16a/" target="blank">Developer</a>
             <a href="logout.php">Logout</a>
         </div><br><br><br>
@@ -75,10 +75,8 @@ echo $f['image'];?>" width="100px" height="100px">
 
 </tr>
 </table>
-<a href="edit.php" text-color:"black">Edit</a>
-<a href="delete.php">Delete</a>
-<a href="branch.php">Create Branch</a>
-<a href="reg.php">Add Staff</a>
-<a href="adddoc.php">Add Doctor</a>
+
+<a href="patanaly.php">Patient Analysis</a>
+
     </body>
 </html>

@@ -11,7 +11,7 @@ if(isset($_POST['sub'])){
     move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
     $img="image/".$_FILES['f1']['name'];
     }
-    $i="insert into staff(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+    $i="insert into doctor(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
     echo "Succesfully Registered";
 }
